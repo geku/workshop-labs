@@ -1,0 +1,26 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: check
+  labels:
+    app: check
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: check
+  template:
+    metadata:
+      labels:
+        app: check
+    spec:
+      containers:
+      - name: web
+        image: geku/workshop-crash
+        env:
+        - name: TOKEN
+          value: abc
+        - name: LIVENESS
+          value: fail
+        ports:
+        - containerPort: 3000

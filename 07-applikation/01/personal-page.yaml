@@ -1,0 +1,42 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: personal-page
+spec:
+  selector:
+    app: personal-page
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: personal-page
+  labels:
+    app: personal-page
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: personal-page
+  template:
+    metadata:
+      labels:
+        app: personal-page
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: page
+          mountPath: /usr/share/nginx/html
+      volumes:
+      - name: page
+        configMap:
+          name: nginx-page
+
+
