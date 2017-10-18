@@ -1,0 +1,69 @@
+# Lösung
+
+
+
+1. Passe die `index.html` Seite an indem du deinen Namen einträgst. Nun erstellst du von dieser Datei eine ConfigMap mit dem Namen `nginx-page`.
+
+2. Nun passen wir das Deployment Manifest `personal-page.yaml` an und tragen den korrekten ConfigMap Namen und den korrekten Mount Pfad für die `index.html` Datei ein. Dann kann das Deployment mit `kubectl create -f personal-page.yaml` erstellt werden.
+
+3. Prüfe den Inhalt der Webseite indem du die IP des Pods im Browser öffnest.
+
+3. Was passiert wenn wir die ConfigMap verändern und den Namen austauschen? (Tipp: es muss ca. 20 Sekunden gewartet werden).
+
+
+
+
+## Deployment Manifest
+
+```
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: personal-page
+  labels:
+    app: personal-page
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: personal-page
+  template:
+    metadata:
+      labels:
+        app: personal-page
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: page
+          mountPath: /usr/share/nginx/html
+      volumes:
+      - name: page
+        configMap:
+          name: nginx-page
+
+```
+
+Und erstellen mit
+
+```
+$ kubectl create -f personal-page.yaml
+```
+
+## Inhalt prüfen
+
+IP vom Pod anzeigen
+
+```
+$ kubectl get pods -o wide
+```
+
+Und IP im Browser öffnen oder mit `curl` abrufen.
+
+## Was passiert wenn ConfigMap geändert wird?
+
+Nach einiger Zeit wird die Datei automatisch geändert und nginx zeigt die neue Webseite an.
+

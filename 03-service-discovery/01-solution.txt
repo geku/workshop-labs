@@ -1,0 +1,31 @@
+# Lösung
+
+## Erstelle einen Namespace: blog
+
+```
+$ kubectl create ns blog
+```
+
+
+## Erstelle die zwei vorgegebenen Deployments und Services: mysql.yaml und wordpress.yaml
+
+```
+$ kubectl create -f mysql.yaml
+$ kubectl create -f wordpress.yaml
+```
+
+
+# Finde die Service IP von Wordpress und rufe die Webseite im Browser auf: http://X.X.X.X
+
+```
+$ kubectl -n blog get service wordpress
+```
+
+
+# Schaue dir die Logs vom Wordpress Pod an.
+
+```
+$ kubectl -n blog logs wordpress-1920328876-x8r7j
+```
+
+

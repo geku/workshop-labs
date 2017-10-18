@@ -1,0 +1,75 @@
+# Lösung
+
+## Deployment Erstellen
+
+Definition:
+
+```
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.7.9
+        ports:
+        - containerPort: 80
+```
+
+Deployment erstellen:
+
+```
+$ kubectl create -f deployment.yaml
+```
+
+## ReplicaSet und Pod anzeigen
+
+```
+$ kubectl get replicaset -l app=nginx
+$ kubectl get pods -l app=nginx
+```
+
+## Pod Löschen
+
+```
+$ kubectl delete pod nginx-deployment-431080787-s8thr
+```
+
+Es wird sofort ein neuer Pod erstellt damit die Anzahl Instanzen 3 bleibt.
+
+## Deployment skalieren
+
+### Lösung A)
+
+Ändere den Parameter `replicas` in der Deployment Definition und speichere die Änderungen mit:
+
+```
+$ kubectl apply -f deployment.yaml
+```
+
+### Lösung B)
+
+Setze den neuen Replikations-Faktor direkt mit kubectl:
+
+```
+$ kubectl scale deployment nginx-deployment --replicas=4
+```
+
+Prüfe die Anzahl Pods:
+
+```
+$ kubectl get pods -l app=nginx
+```
+

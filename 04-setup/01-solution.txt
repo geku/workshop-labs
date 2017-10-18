@@ -1,0 +1,20 @@
+# Lösung
+
+## etcd Cluster Mitglieder anzeigen
+
+```
+$ docker exec -it etcd_etcd1_1 etcdctl member list
+```
+
+## Wert schreiben
+
+```
+$ docker exec -it etcd_etcd1_1 etcdctl set message "Hello World"
+```
+
+## Wert lesen
+
+```
+$ docker exec -it etcd_etcd1_1 etcdctl get message
+```
+

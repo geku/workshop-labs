@@ -1,0 +1,19 @@
+# Lösung
+
+Kubernetes Dokumentation:
+https://kubernetes.io/docs/home/
+
+API Referenz:
+https://kubernetes.io/docs/api-reference/v1.7
+
+API Gruppen
+
+```
+$ curl -sS localhost:8080/
+```
+
+Liste der Nodes:
+
+```
+curl -sS localhost:8080/api/v1/nodes | jq .items[].metadata.name
+```

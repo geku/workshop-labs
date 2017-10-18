@@ -1,0 +1,18 @@
+# Lösung
+
+## nginx Deployment erstellen
+
+```
+$ kubectl create -f nginx.yaml
+```
+
+## IP Adressen
+
+Pod IP:  172.17.0.2
+Service IP: 10.0.0.195
+
+Pod und Service IP sind nicht im selben Netzwerk
+
+## Was machen die IPTables Regeln?
+
+IPTables leiten Anfragen auf VIP weiter auf die Pod IP

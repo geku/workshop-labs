@@ -1,0 +1,25 @@
+# Lösung
+
+## Resultate der DNS Abfrage:
+
+```
+$ kubectl -n blog exec -it wordpress-1920328876-x8r7j nslookup wordpress-mysql
+Server:   10.0.0.10
+Address:  10.0.0.10#53
+
+Name: wordpress-mysql.blog.svc.cluster.local
+Address: 10.0.0.161
+```
+
+## Welche Domains können aufeglöst werden?
+
+* wordpress-mysql
+* wordpress-mysql.blog
+* wordpress-mysql.blog.svc.cluster.local
+
+
+## Und welche IP erhalten wir für MySQL? Was für eine IP ist das?
+
+Z.B. 10.0.0.161
+
+Es handelt sich um die IP des MySQL Services. Vergleiche dazu auch `kubectl -n blog get services`

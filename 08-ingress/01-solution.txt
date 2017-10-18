@@ -1,0 +1,42 @@
+# Lösung
+
+
+## Traefik erstellen
+
+```
+$ kubectl create -f traefik.yaml
+```
+
+## nginx erstellen
+
+```
+$ kubectl create -f nginx.yaml
+```
+
+## Ingress Ressource
+
+```
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: traefik
+  name: nginx-ingress
+  namespace: default
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          serviceName: nginx
+          servicePort: 80
+        path: /demo
+```
+
+Und dann erstellen:
+
+```
+$ kubectl create -f ingress.yaml
+```
+

@@ -1,0 +1,54 @@
+# Lösung
+
+## Deployment mit Liveness Check
+
+```
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: check
+  labels:
+    app: check
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: check
+  template:
+    metadata:
+      labels:
+        app: check
+    spec:
+      containers:
+      - name: web
+        image: geku/workshop-crash
+        env:
+        - name: TOKEN
+          value: abc
+        - name: LIVENESS
+          value: fail
+        ports:
+        - containerPort: 3000
+        livenessProbe:
+          httpGet:
+            path: /liveness
+            port: 3000
+          initialDelaySeconds: 3
+          periodSeconds: 3
+```
+
+## Deployment erstellen
+
+```
+$ kubectl create -f check.yaml
+```
+
+## Pod Status prüfen
+
+```
+$ kubectl get pods
+$ kubectl describe pod check-3796675837-jst8n
+```
+
+Wir sehen als Fehlermeldung "Liveness probe failed: HTTP probe failed with statuscode: 500"
+

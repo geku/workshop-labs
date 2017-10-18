@@ -1,0 +1,33 @@
+# Lösung
+
+## Erstelle Service
+
+```
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx
+spec:
+  selector:
+    app: nginx
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+```
+
+Service kreiren:
+
+```
+$ kubectl create -f service.yaml
+```
+
+
+## Prüfe den Service und die Endpoints
+
+```
+# Service
+$ kubectl get service nginx
+# Endpoints
+$ kubectl get endpoints nginx
+```

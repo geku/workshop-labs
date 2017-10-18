@@ -1,0 +1,12 @@
+# Lösung
+
+## Pod Debuggen
+
+
+Die Logs vom Pod geben den Hinweis, dass eine Umgebungsvariable fehlt und der Pod daher abstürzt.
+
+```
+$ kubectl logs crash-demo-4019080058-bdfwh
+```
+
+Wird die vorhandene Umgebungsvariable `PASSWORD` in `TOKEN` umbenannt läuft der Pod.

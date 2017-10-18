@@ -1,0 +1,13 @@
+# Lösung
+
+## Deployments exportieren
+
+
+```
+$ kubectl get deployments -o json > deployments.json
+$ cat deployments.json
+```
+
+
+Für einen sauberen Export sollten noch verschiedene, generierte Attribute von den JSON Manifesten entfernt werden. Dies kann z.B. mit `jq` erfolgen.
+

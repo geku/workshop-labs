@@ -1,0 +1,21 @@
+# Lösung
+
+## Alle Nodes anzeigen
+
+```
+$ kubectl get nodes
+```
+
+
+## Node Details anzeigen
+
+```
+$ kubectl get node <NAME> -o wide
+$ kubectl describe node <NAME>
+```
+
+## Node Manifest anzeigen
+
+```
+$ kubectl get node <NAME> -o (yaml|json)
+```

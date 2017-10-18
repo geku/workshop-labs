@@ -1,0 +1,12 @@
+# Lösung
+
+## Deployment aktualisieren
+
+```
+$ kubectl apply -f deployment.yaml
+```
+
+* Ein Pod nach dem anderen wird ausgetauscht
+* Der Pod zeigt die neue Webseite an
+
+

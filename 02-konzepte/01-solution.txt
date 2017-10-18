@@ -1,0 +1,31 @@
+# Lösung
+
+## Pod erstellen
+
+```
+$ kubectl create -f nginx.yaml
+```
+
+## IP vom Pod anzeigen
+
+```
+$ kubectl get pod nginx –o wide
+```
+
+## Webseite im Browser anzeigen
+
+Dies funktioniert, da wir direkt auf dem Node selber sind. Von aussen ist die Pod IP aber nicht erreichbar.
+
+
+## Logs anzeigen
+
+```
+$ kubectl logs nginx
+```
+
+
+## Pod löschen
+
+```
+$ kubectl delete pod nginx
+```

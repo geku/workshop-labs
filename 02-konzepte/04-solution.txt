@@ -1,0 +1,14 @@
+# Lösung
+
+## Deployments Historie wird gespeichert (Revisionen):
+
+```
+$ kubectl rollout history deployment/nginx
+```
+
+
+## Rollback auf vorherige Revision
+
+```
+$ kubectl rollout undo deployment/demo --to-revision=2
+```

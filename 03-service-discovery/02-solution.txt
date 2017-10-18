@@ -1,0 +1,15 @@
+# Lösung
+
+## Setze im wordpress.yaml Deployment die Umgebungsvariable “WORDPRESS_DB_HOST”
+
+Die Variable muss auf `wordpress-mysql`, `wordpress-mysql.blog` oder `wordpress-mysql.blog.svc.cluster.local` gesetzt werden muss.
+
+## Änderung ausrollen
+
+```
+$ kubectl apply -f wordpress.yaml
+```
+
+## Funktioniert Wordpress nun im Browser?
+
+Ja, Wordpress findet die Datenbank nun und funktioniert. Wir kommen auf die Setup Seite von Wordpress.

@@ -1,0 +1,23 @@
+# Lösung
+
+## Deployment erstellen
+
+```
+$ kubectl create -f crash.yaml
+```
+
+
+## Pod Debuggen
+
+```
+# Pod Infos anzeigen -> Problem vorhanden
+kubectl get pod crash-demo-4019080058-bdfwh
+
+# Pod Details anzeigen -> Genaue Problembeschreibung
+kubectl describe pod crash-demo-4019080058-bdfwh
+
+# Logs vom Pod -> Applikationsprobleme
+kubectl logs crash-demo-4019080058-bdfwh
+```
+
+In diesem Fall haben wir einen Schreibfehler im Image. Das Image heisst `geku/workshob-crash`.

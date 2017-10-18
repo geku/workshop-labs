@@ -1,0 +1,17 @@
+# Lösung
+
+## Service erstellen
+
+```
+$ kubectl create -f node-service.yaml
+```
+
+
+## NodePort finden
+
+```
+$ kubectl get service nginx-node
+```
+
+Der Zugriff sollte grundsätzlich funktionieren. Aber anscheinend ist mit dem Minikube Setup etwas nicht in Ordnung.
+

@@ -1,0 +1,27 @@
+# Lösung
+
+## nginx Deployment erstellen
+
+```
+$ kubectl create -f nginx
+```
+
+## Node deaktivieren
+
+```
+$ kubectl drain <node>
+```
+
+## Was ist passiert?
+
+Der nginx pod wurde entfernt und der Pod ist nun im Status “pending”.
+
+## Node aktivieren
+
+```
+$ kubectl uncordon <node>
+```
+
+Sobald der Node wieder aktiv ist, wird der nginx pod wieder gestartet.
+
+

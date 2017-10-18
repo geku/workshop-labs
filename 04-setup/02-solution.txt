@@ -1,0 +1,7 @@
+# Lösung
+
+* Bei einem fehlerhaften Node könnt ihr schreiben und lesen.
+* Bei zwei fehlerhaften Nodes könnt ihr nur noch lesen, nicht aber schreiben.
+* Etcd hat keine Mehrheit mehr und kann daher den Wert nicht konsistent schreiben.
+
+Daraus lernen wir, dass bei einem etcd Cluster mit 3 Nodes ein Node ausfallen kann und der Cluster weiterhin funktionsfähig ist.
