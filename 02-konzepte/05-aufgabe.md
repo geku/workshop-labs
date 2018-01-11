@@ -1,16 +1,15 @@
-# Service
+# Rollback
 
 ## Aufgabe
 
-Unsere 4 nginx Instanzen sollen als Service verfügbar sein:
+Rollback auf eine vorherige Version:
 
-1. Erstelle einen Service. Verwende einen korrekten Label Selektor. Tipp: Beispiel service.yaml
-2. Prüfe den Service und die Endpoints
-3. Finde die virtuelle IP und öffne diese im Browser.
-
+1. Zeige alle Revisionen des nginx Deployments an.
+2. Wähle eine vorherige Version aus und führe ein Rollback durch.
+3. Prüfe im Browser ob die korrekte Version deployed wurde.
 
 ## Tipps
 
-* Benutze das Kommando `kubectl create -f service.yaml` um den Service zu erstellen.
-* `kubectl get service` und `kubectl get endpoints` geben Auskunft über Services und Endpunkte.
-* `kubectl describe service <name>` liefert Service Details.
+* Benutze das Kommando `kubectl rollout --help` um alle Optionen zu sehen.
+
+

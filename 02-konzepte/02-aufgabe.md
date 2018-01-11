@@ -1,24 +1,28 @@
-# nginx Deployment
+# Container Parameter
 
 ## Aufgabe
 
-Deployment erstellen:
+Container Parameter ändern:
 
-1. Es sollen immer 2 nginx Instanzen laufen. Erstelle dafür ein Deployment. Tipp: deployment.yaml Beispiel
 
-2. Schaue dir das ReplicaSet und die Pods an.
+1. Ändert den auszuführenden Befehl
 
-3. Was passiert wenn du einen der Pods löscht?
+  * Nehmt die nginx Definition
+  * Definiert als Befehl “sleep 60”
+  * Startet den Pod mit “kubectl create”
 
-4. Skaliere nginx auf 4 Instanzen.
+2. Beantwortet folgende Fragen:
+
+  * Was geschieht mit dem Pod nach einiger Zeit?
+  * Welches Pod Feld kann das beobachtet Verhalten beinflussen?
+  * Woher wusste Kubernetes, dass nginx gestartet werden soll obwohl kein Befehl definiert war?
+
+3. Lösche den Pod
+
 
 ### Tipps
 
 * Ressourcen kannst du mit `kubectl get <ressource>` anzeigen
 * Löschen einer Ressource funktioniert mit `kubectl delete <ressource>`
-* Eine Ressource kann im Definitionsfile geändert werden und mit `kubectl apply` gespeichert werden.
-
-
-### Links
-
-https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+* Eine Ressource kann im Definitionsfile geändert werden und mit `kubectl replace` ersetz werden.
+* Nutze die Kubernetes API Referenz als Dokumentation.

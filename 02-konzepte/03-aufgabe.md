@@ -1,15 +1,24 @@
-# Rolling Update
+# nginx Deployment
 
 ## Aufgabe
 
-Rolling Update von einem Deployment:
+Deployment erstellen:
 
-* Ändere das Image vom nginx Deployment auf `geku/red:latest`.
-* Beobachte was mit den 4 Pods passiert.
-* Prüfe einen der neuen Pods im Browser. Wurde das Image aktualisiert?
+1. Es sollen immer 2 nginx Instanzen laufen. Erstelle dafür ein Deployment. Tipp: deployment.yaml Beispiel
+
+2. Schaue dir das ReplicaSet und die Pods an.
+
+3. Was passiert wenn du einen der Pods löscht?
+
+4. Skaliere nginx auf 4 Instanzen.
+
+### Tipps
+
+* Ressourcen kannst du mit `kubectl get <ressource>` anzeigen
+* Löschen einer Ressource funktioniert mit `kubectl delete <ressource>`
+* Eine Ressource kann im Definitionsfile geändert werden und mit `kubectl apply` gespeichert werden.
 
 
-## Tipps
+### Links
 
-* Benutze `kubectl get pods --watch` um Änderungen besser zu sehen.
-* Die IP Adressen der Pods kannst du mit `kubectl get pods -o wide` anzeigen.
+https://kubernetes.io/docs/concepts/workloads/controllers/deployment/

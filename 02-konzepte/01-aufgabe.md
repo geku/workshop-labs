@@ -13,3 +13,4 @@ Pod erstellen und managen:
   * Könnt ihr die Website im Browser aufrufen?
   * Seht ihr die Zugriffe im nginx log?
 
+3. Lösche den Pod
