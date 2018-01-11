@@ -5,7 +5,14 @@
 Startet Minikube mit folgendem Befehl:
 
 ```
-$ minikube --extra-config=apiserver.InsecureServing.BindAddress=0.0.0.0 --extra-config=apiserver.InsecureServing.BindPort=8080 --vm-driver=none start
+$ sudo minikube --extra-config=apiserver.InsecureServing.BindAddress=0.0.0.0 --extra-config=apiserver.InsecureServing.BindPort=8080 --vm-driver=none start
+```
+
+Passt die Berechtigungen an:
+
+```
+$ sudo chown ubuntu:ubuntu -R ~/.kube/
+$ sudo chown ubuntu:ubuntu -R ~/.minikube/
 ```
 
 Prüft ob der Kubernetes Cluster läuft:
@@ -14,7 +21,7 @@ Prüft ob der Kubernetes Cluster läuft:
 $ kubectl get nodes
 ```
 
-Dies sollte einen Node zurück geben.
+Dies sollte einen Node zurück liefern.
 
 
 ## Aufgabe
