@@ -1,6 +1,6 @@
 # Liveness Check
 
-Wir erstellen einen Service mit einem Liveness Check.
+Wir erstellen einen Pod mit einem Liveness Check.
 
 ## Aufgabe
 
