@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: nginx
+  name: webapp
 spec:
   selector:
     app: web
@@ -13,7 +13,7 @@ spec:
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: nginx
+  name: webapp
   labels:
     app: web
 spec:
@@ -27,7 +27,7 @@ spec:
         app: web
     spec:
       containers:
-      - name: nginx
+      - name: webapp
         image: geku/blue:latest
         ports:
         - containerPort: 80

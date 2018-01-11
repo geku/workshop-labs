@@ -1,10 +1,16 @@
 # Pod Debugging
 
+Wir debuggen einen Pod der nicht läuft.
 
 ## Aufgabe
 
-1. Starte das `crash.yaml` Deployment.
+1. Erstelle das Deployment `crash.yaml`.
 
-1. Deaktiviere den Node mit `kubectl drain <node>`
-2. Was ist mit dem nginx pod passiert?
-3. Bringe den Node für die nächsten Übungen wieder zurück: `kubectl uncordon <node>`
+2. Der Pod startet nicht, finde heraus wieso.
+
+3. Behebe den Fehler.
+
+
+## Tipps
+
+* Auf dem Docker Hub können öffentliche Images gesucht und gefunden werden: https://hub.docker.com/. Es können auch alle Images von einem Benutzer aufgelistet werden.
